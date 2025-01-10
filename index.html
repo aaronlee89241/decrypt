@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Decode</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            z-index: 1;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 4;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .Decode {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        .ca {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            animation: flicker 0.3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.7;
+            }
+        }
+
+        .tv-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 3;
+            animation: scanline 10s linear infinite;
+        }
+
+        .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+            z-index: 3;
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes scanline {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .challenge-link {
+            position: relative;
+            z-index: 4;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            letter-spacing: 2px;
+            animation: flicker 0.4s infinite alternate;
+        }
+
+        .challenge-link:hover {
+            text-shadow: 0 0 8px white;
+        }
+
+        .full-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="bg.gif" alt="TV Static" class="background">
+    <div class="full-overlay"></div>
+    <div class="tv-overlay"></div>
+    <div class="glitch"></div>
+    <div class="content">
+        <div class="Decode">Decode</div>
+        <div class="ca">CA: soon</div>
+    </div>
+    <a href="challenge1.html" class="challenge-link">Challenge 1</a>
+</body>
+</html>
